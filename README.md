@@ -1,4 +1,4 @@
-# Adversarial Attacks on deep learning algorithms using naturally perturbed images
+# Adversarial Attacks on Deep Learning Algorithms using Natural Perturbations
 
 Our aim is to fool a state-of-the-art deep learning model with wrong predictions. This repository presents the experimental steps on this project. You may also want to check how to install Tensorflow and the model we use here.
 
@@ -30,24 +30,28 @@ Store those files in the same path where *fog.m* is:
 ### CLASSIFICATION
 For the image classification task, we use the Inception model with Tensorflow.
 
-Start by cloning the repository from [this link](https://github.com/tensorflow/models).
+Start by cloning the repository from [here](https://github.com/tensorflow/models).
 
 Copy the following folders under the directory models-master/tutorials/image/imagenet:
-berlin_foggy_images
-berlin_left_images
+- berlin_foggy_images
+- berlin_left_images
 
 Run the following commands:
+```
 cd models-master/tutorials/image/imagenet
 python classify_image.py
+```
 
-The above command will classify a supplied image of a panda bear. If the model runs correctly, the script will produce the following output:
+The above commands will classify a supplied image of a panda bear. If the model runs correctly, the script will produce the following output:
+```
 giant panda, panda, panda bear, coon bear, Ailuropoda melanoleuca (score = 0.88493)
 indri, indris, Indri indri, Indri brevicaudatus (score = 0.00878)
 lesser panda, red panda, panda, bear cat, cat bear, Ailurus fulgens (score = 0.00317)
 custard apple (score = 0.00149)
 earthstar (score = 0.00127)
+```
 
-In the line 192 of the code classify_image.py, we write the name of the foggy image with its path as follows:
+In the code classify_image.py, change the name of the foggy image with its path as follows:
 '/Users/mesutozdag/Downloads/models-master/tutorials/image/imagenet/berlin_foggy_images/berlin216_foggy.png'
 
 We use Cityscapes and Frida/Frida2 datasets.
