@@ -2,33 +2,35 @@
 
 Our aim is to fool a state-of-the-art deep learning model with wrong predictions. This repository presents the experimental steps on this project. You may also want to check how to install Tensorflow and the model we use here.
 
-OUR FOG GENERATOR
+### FOG GENERATOR
 
-We generate fog on images as the natural perturbation. For the Cityscapes dataset, we generate our own foggy images using stereo pair (left and right) images and disparity map. Please refer to the file fog.m in order to reproduce those foggy Cityscapes images.
+We generate fog on images as the natural perturbation. For the Cityscapes dataset, we generate our own foggy images using stereo pair *(left and right)* images and their disparity map. Please refer to the file *fog.m* in order to reproduce those foggy Cityscapes images.
 
-Values of the Parameters for the different Fog Densities:
+**Values of the Parameters for Different Fog Densities:**
 
-Light fog
-tFactor :  0.05
-atmLight: 1.0
+Light Fog
+- *tFactor* :  0.05
+- *atmLight*: 1.0
 
-Medium fog														tFactor :  0.1														atmLight: 1.0
+Medium Fog
+- *tFactor* :  0.1
+- *atmLight*: 1.0
 
-Light fog														tFactor :  0.15														atmLight: 1.0
+Thick Fog
+- *tFactor* :  0.15
+- *atmLight*: 1.0
 
-In order to find the produced foggy images, I store those files in the same path where fog.m is:
-Fog/stereoImages/disparity  		   --> disparity maps.
-Fog/stereoImages/berlin_left_images        --> left images.
-Fog/berlin_foggy_images	     	           --> foggy images.
-The link for those files:
-https://drive.google.com/open?id=1ae9i-BLKPuiPVTwgNvFbYDwBR2gVv9Wn
+In order to find the produced foggy images, please click [here](https://drive.google.com/open?id=1ae9i-BLKPuiPVTwgNvFbYDwBR2gVv9Wn).
 
+Store those files in the same path where *fog.m* is:
+- Fog/stereoImages/disparity  		     --> disparity maps.
+- Fog/stereoImages/berlin_left_images        --> left images.
+- Fog/berlin_foggy_images	     	     --> foggy images.
 
-CLASSIFICATION
+### CLASSIFICATION
 For the image classification task, we use the Inception model with Tensorflow.
 
-Start by cloning the repository from the following link on GitHub:
-https://github.com/tensorflow/models
+Start by cloning the repository from [this link](https://github.com/tensorflow/models).
 
 Copy the following folders under the directory models-master/tutorials/image/imagenet:
 berlin_foggy_images
