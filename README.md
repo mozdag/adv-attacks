@@ -55,7 +55,7 @@ In the code classify_image.py, change the name of the foggy image with its path 
 '/Users/mesutozdag/Downloads/models-master/tutorials/image/imagenet/berlin_foggy_images/berlin216_foggy.png'
 
 
-INSTALLING TENSORFLOW WITH NATIVE PIP
+#### INSTALLING TENSORFLOW WITH NATIVE PIP
 
 Before starting the environmental setup, it would be helpful to mention the common problem you might face, which is "Too many levels of symbolic links".
 
