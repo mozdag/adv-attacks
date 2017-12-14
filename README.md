@@ -3,6 +3,7 @@
 Our aim is to fool a state-of-the-art deep learning model with wrong predictions. This repository presents the experimental steps on this project. You may also want to check how to install Tensorflow and the model we use here.
 
 OUR FOG GENERATOR
+
 We generate fog on images as the natural perturbation. For the Cityscapes dataset, we generate our own foggy images using stereo pair (left and right) images and disparity map. Please refer to the file fog.m in order to reproduce those foggy Cityscapes images.
 
 Values of the Parameters for the different Fog Densities:
