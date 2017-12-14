@@ -8,7 +8,9 @@ We generate fog on images as the natural perturbation. For the Cityscapes datase
 
 Values of the Parameters for the different Fog Densities:
 
-Light fog														tFactor :  0.05														atmLight: 1.0
+Light fog
+tFactor :  0.05
+atmLight: 1.0
 
 Medium fog														tFactor :  0.1														atmLight: 1.0
 
