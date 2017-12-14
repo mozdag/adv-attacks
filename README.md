@@ -7,7 +7,8 @@ OUR FOG GENERATOR
 We generate fog on images as the natural perturbation. For the Cityscapes dataset, we generate our own foggy images using stereo pair (left and right) images and disparity map. Please refer to the file fog.m in order to reproduce those foggy Cityscapes images.
 
 Values of the Parameters for the different Fog Densities:
-Light fog
+
+Light fog	
 tFactor :  0.05
 atmLight: 1.0
 Medium fog
