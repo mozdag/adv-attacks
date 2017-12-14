@@ -28,7 +28,7 @@ Store those files in the same path where *fog.m* is:
 - Fog/berlin_foggy_images	     	     --> foggy images.
 
 ### CLASSIFICATION
-For the image classification task, we use the Inception model with Tensorflow.
+For the image classification task, we use the Inception model with Tensorflow. For our experiments, **Cityscapes** and **Frida/Frida2** datasets are used.
 
 Start by cloning the repository from [here](https://github.com/tensorflow/models).
 
@@ -54,8 +54,6 @@ earthstar (score = 0.00127)
 In the code classify_image.py, change the name of the foggy image with its path as follows:
 '/Users/mesutozdag/Downloads/models-master/tutorials/image/imagenet/berlin_foggy_images/berlin216_foggy.png'
 
-We use Cityscapes and Frida/Frida2 datasets.
-
 
 INSTALLING TENSORFLOW WITH NATIVE PIP
 
@@ -68,57 +66,63 @@ This is because you have multiple Python versions installed in your system. Here
 -	Install a fresh Python using homebrew.
 -	Install virtualenv or native pip.
 
-
-Prerequisite: Python
+#### Prerequisite: Python
 In order to install TensorFlow, your system must contain one of the following Python versions:
 •	Python 2.7
 •	Python 3.3+
 
 When installing Python, you might need to disable System Integrity Protection (SIP) to permit any entity other than Mac App Store to install software.
 
-Prerequisite: pip
-Pip installs and manages software packages written in Python. If you intend to install with native pip, then one of the following flavors of pip must be installed on your system:
+#### Prerequisite: pip
+- Pip installs and manages software packages written in Python. If you intend to install with native pip, then one of the following flavors of pip must be installed on your system:
 •	pip, for Python 2.7
 •	pip3, for Python 3.n.
 
-pip or pip3 was probably installed on your system when you installed Python. To determine whether pip or pip3 is actually installed on your system, issue one of the following commands:
+- pip or pip3 was probably installed on your system when you installed Python. To determine whether pip or pip3 is actually installed on your system, issue one of the following commands:
 $ pip -V  # for Python 2.7
 $ pip3 -V # for Python 3.n 
 
-We recommend pip or pip3 version 8.1 or higher in order to install TensorFlow. If pip or pip3 8.1 or later is not installed, issue the following commands to install or upgrade:
+- We recommend pip or pip3 version 8.1 or higher in order to install TensorFlow. If pip or pip3 8.1 or later is not installed, issue the following commands to install or upgrade:
 $ sudo easy_install --upgrade pip
 $ sudo easy_install --upgrade six 
 
-Install TensorFlow
-Assuming the prerequisite software is installed on your Mac, take the following steps:
-1.	Install TensorFlow by invoking one of the following commands:
-2.	$ pip install tensorflow      # Python 2.7; CPU support
- 	$ pip3 install tensorflow     # Python 3.n; CPU support
+#### Install TensorFlow
+Assuming the prerequisite software is installed on your Mac, take the following steps. Install TensorFlow by invoking one of the following commands:
+- $ pip install tensorflow      # Python 2.7; CPU support
+- $ pip3 install tensorflow     # Python 3.n; CPU support
 
-Validate your installation
+#### Validate your installation
 To validate your TensorFlow installation, do the following:
 1.	Ensure that your environment is prepared to run TensorFlow programs.
 2.	Run a short TensorFlow program.
 
-Prepare your environment
+#### Prepare your environment
 If you installed on native pip, virtualenv, or Anaconda, then do the following:
 1.	Start a terminal.
 2.	If you installed with virtualenv or Anaconda, activate your container.
 3.	If you installed TensorFlow source code, navigate to any directory except one containing TensorFlow source code.
 
 If you installed through Docker, start a Docker container that runs bash. For example:
+```
 $ docker run -it gcr.io/tensorflow/tensorflow bash
+```
 
-Run a short TensorFlow program
-Invoke python from your shell as follows:
+Run a short TensorFlow program. Invoke python from your shell as follows:
+```
 $ python
+```
 
 Enter the following short program inside the python interactive shell:
-# Python
+
+#### Python
+```
 import tensorflow as tf
 hello = tf.constant('Hello, TensorFlow!')
 sess = tf.Session()
 print(sess.run(hello))
+```
 
 If the system outputs the following, then you are ready to begin TensorFlow 
+```
 Hello, TensorFlow!
+```
