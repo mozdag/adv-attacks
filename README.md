@@ -1,6 +1,57 @@
 # Adversarial Attacks on deep learning algorithms using naturally perturbed images
 
-This report presents the installation and experimental steps on this project.
+Our aim is to fool a state-of-the-art deep learning model with wrong predictions. This repository presents the experimental steps on this project. You may also want to check how to install Tensorflow and the model we use here.
+
+OUR FOG GENERATOR
+We generate fog on images as the natural perturbation. For the Cityscapes dataset, we generate our own foggy images using stereo pair (left and right) images and disparity map. Please refer to the file fog.m in order to reproduce those foggy Cityscapes images.
+
+Values of the Parameters for the different Fog Densities:
+Light fog
+tFactor :  0.05
+atmLight: 1.0
+Medium fog
+tFactor :  0.1
+atmLight: 1.0
+Light fog
+tFactor :  0.15
+atmLight: 1.0
+
+In order to find the produced foggy images, I store those files in the same path where fog.m is:
+Fog/stereoImages/disparity  		   --> disparity maps.
+Fog/stereoImages/berlin_left_images        --> left images.
+Fog/berlin_foggy_images	     	           --> foggy images.
+The link for those files:
+https://drive.google.com/open?id=1ae9i-BLKPuiPVTwgNvFbYDwBR2gVv9Wn
+
+
+CLASSIFICATION
+For the image classification task, we use the Inception model with Tensorflow.
+
+Start by cloning the repository from the following link on GitHub:
+https://github.com/tensorflow/models
+
+Copy the following folders under the directory models-master/tutorials/image/imagenet:
+berlin_foggy_images
+berlin_left_images
+
+Run the following commands:
+cd models-master/tutorials/image/imagenet
+python classify_image.py
+
+The above command will classify a supplied image of a panda bear. If the model runs correctly, the script will produce the following output:
+giant panda, panda, panda bear, coon bear, Ailuropoda melanoleuca (score = 0.88493)
+indri, indris, Indri indri, Indri brevicaudatus (score = 0.00878)
+lesser panda, red panda, panda, bear cat, cat bear, Ailurus fulgens (score = 0.00317)
+custard apple (score = 0.00149)
+earthstar (score = 0.00127)
+
+In the line 192 of the code classify_image.py, we write the name of the foggy image with its path as follows:
+'/Users/mesutozdag/Downloads/models-master/tutorials/image/imagenet/berlin_foggy_images/berlin216_foggy.png'
+
+We use Cityscapes and Frida/Frida2 datasets.
+
+
+INSTALLING TENSORFLOW WITH NATIVE PIP
 
 Before starting the environmental setup, it would be helpful to mention the common problem you might face, which is "Too many levels of symbolic links".
 
@@ -11,8 +62,6 @@ This is because you have multiple Python versions installed in your system. Here
 -	Install a fresh Python using homebrew.
 -	Install virtualenv or native pip.
 
-
-INSTALLING TENSORFLOW WITH NATIVE PIP
 
 Prerequisite: Python
 In order to install TensorFlow, your system must contain one of the following Python versions:
@@ -67,28 +116,3 @@ print(sess.run(hello))
 
 If the system outputs the following, then you are ready to begin TensorFlow 
 Hello, TensorFlow!
-
-OUR FOG GENERATOR
-For the Cityscapes dataset, we generate our own foggy images using stereo pair (left and right) images and disparity map. Please refer to the file fog.m in order to reproduce those foggy Cityscapes images.
-
-CLASSIFICATION
-For the image classification task, we use the Inception model with Tensorflow.
-
-Start by cloning the repository from the following link on GitHub:
-https://github.com/tensorflow/models
-
-Run the following commands:
-cd models-master/tutorials/image/imagenet
-python classify_image.py
-
-The above command will classify a supplied image of a panda bear. If the model runs correctly, the script will produce the following output:
-giant panda, panda, panda bear, coon bear, Ailuropoda melanoleuca (score = 0.88493)
-indri, indris, Indri indri, Indri brevicaudatus (score = 0.00878)
-lesser panda, red panda, panda, bear cat, cat bear, Ailurus fulgens (score = 0.00317)
-custard apple (score = 0.00149)
-earthstar (score = 0.00127)
-
-In the line 192 of the code classify_image.py, we write the name of the foggy image with its path as follows:
-'/Users/mesutozdag/Downloads/models-master/tutorials/image/imagenet/berlin_foggy_images/berlin216_foggy.png'
-
-We use Cityscapes and Frida/Frida2 datasets. We generate fog on images as the natural perturbation.
